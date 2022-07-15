@@ -1,7 +1,7 @@
 <div
   class="d-flex vh-100 justify-content-center align-items-center flex-column"
 >
-  <form class="example-form">
+  <form class="example-form" [formGroup]="form" (ngSubmit)="onSubmit(form)">
     <mat-card class="example-card">
       <span class="d-flex justify-content-center mb-3 mt-2">Вхід</span>
       <mat-form-field
@@ -11,25 +11,43 @@
         <mat-label>Телефон</mat-label>
         <input
           type="tel"
-          formControlName="login"
+          matInput 
+          formControlName="tel"
           prefix="+"
-          mask=" 00(000) 000 00 00"
-          matInput
+          mask="00(000) 000 00 00"
         />
       </mat-form-field>
+      <mat-hint class="text-secondary">380637771212</mat-hint>
 
       <mat-form-field
         class="d-flex justify-content-center mt-4"
         appearance="outline"
       >
         <mat-label>Password</mat-label>
-        <input matInput type="password" />
+        <input
+          matInput
+          type="password"
+          formControlName="pass"
+          [type]="hide ? 'password' : 'text'"
+        />
+        <button
+          type="button"
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+        <mat-error *ngIf="pass.errors?.['minlength']">
+          Length must be at least {{pass.errors?.['minlength'].requiredLength}} character.
+          Now you write {{pass.errors?.['minlength'].actualLength}} characters.
+        </mat-error>
       </mat-form-field>
 
       <button
         mat-raised-button
         color="primary"
-        class="d-flex justify-content-center m-auto mb-2"
+        class="d-flex justify-content-center m-auto mb-2 mt-3"
         type="submit"
       >
         Увійти

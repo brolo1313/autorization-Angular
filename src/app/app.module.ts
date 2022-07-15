@@ -6,10 +6,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './auth/component/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
-import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { MatIconModule } from '@angular/material/icon';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
@@ -21,7 +23,9 @@ import { NgxMaskModule, IConfig } from 'ngx-mask'
     MatCardModule,
     MatButtonModule,
     MatInputModule,
-    NgxMaskModule.forRoot()
+    MatIconModule,
+    ReactiveFormsModule,
+    NgxMaskModule.forRoot(),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],

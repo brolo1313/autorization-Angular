@@ -1,7 +1,7 @@
 mat-card {
   width: 400px;
   background-color: white;
-  padding: 50px;
+  padding: 30px;
 }
 
 span {
@@ -18,8 +18,14 @@ input {
 ::ng-deep mat-form-field {
   color: black;
 
-  &.div.mat-form-field-wrapper {
-    width: 100%;
+  &::ng-deep .mat-form-field-wrapper {
+    width: 80%;
+  }
+}
+
+::ng-deep.mat-form-field-invalid {
+  ::ng-deep.mat-form-field-outline {
+    color: red !important;
   }
 }
 
@@ -42,4 +48,10 @@ input {
 
 .mat-raised-button {
   width: 200px;
+}
+
+mat-hint {
+  position: relative;
+  top: -15px;
+  left: 40px;
 }
