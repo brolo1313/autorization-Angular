@@ -3,15 +3,37 @@
 >
   <form class="example-form">
     <mat-card class="example-card">
-      <mat-form-field class="d-flex" appearance="outline">
-        <mat-label>Login</mat-label>
-        <input matInput value="enter login" />
+      <span class="d-flex justify-content-center mb-3 mt-2">Вхід</span>
+      <mat-form-field
+        class="d-flex justify-content-center"
+        appearance="outline"
+      >
+        <mat-label>Телефон</mat-label>
+        <input
+          type="tel"
+          formControlName="login"
+          prefix="+"
+          mask=" 00(000) 000 00 00"
+          matInput
+        />
       </mat-form-field>
 
-      <mat-form-field class="d-flex mt-4" appearance="fill">
+      <mat-form-field
+        class="d-flex justify-content-center mt-4"
+        appearance="outline"
+      >
         <mat-label>Password</mat-label>
-        <input matInput value="enter password" />
+        <input matInput type="password" />
       </mat-form-field>
+
+      <button
+        mat-raised-button
+        color="primary"
+        class="d-flex justify-content-center m-auto mb-2"
+        type="submit"
+      >
+        Увійти
+      </button>
     </mat-card>
   </form>
 </div>

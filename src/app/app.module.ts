@@ -7,6 +7,9 @@ import { LoginComponent } from './auth/component/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import { NgxMaskModule, IConfig } from 'ngx-mask'
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
@@ -16,6 +19,9 @@ import {MatCardModule} from '@angular/material/card';
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatCardModule,
+    MatButtonModule,
+    MatInputModule,
+    NgxMaskModule.forRoot()
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],

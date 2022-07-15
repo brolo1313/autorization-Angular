@@ -1,0 +1,45 @@
+mat-card {
+  width: 400px;
+  background-color: white;
+  padding: 50px;
+}
+
+span {
+  color: black;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+input {
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+::ng-deep mat-form-field {
+  color: black;
+
+  &.div.mat-form-field-wrapper {
+    width: 100%;
+  }
+}
+
+::ng-deep.mat-form-field-outline {
+  color: #7b1fa2 !important;
+}
+
+::ng-deep.mat-form-field-label {
+  color: #7b1fa2;
+}
+
+::ng-deep.mat-card:not([class*="mat-elevation-z"]) {
+  box-shadow: 0px 2px 25px 0px rgb(0 0 0 / 22%),
+    0px 1px 1px 0px rgb(0 0 0 / 31%), 0px 1px 13px 0px rgb(0 0 0 / 29%);
+}
+
+.mat-form-field-outline {
+  color: gray;
+}
+
+.mat-raised-button {
+  width: 200px;
+}
