@@ -17,9 +17,10 @@ import { AuthEffect } from './auth/effects/auth.effects';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, LoginPageComponent],
+  declarations: [AppComponent, LoginComponent, LoginPageComponent, ProfileComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
