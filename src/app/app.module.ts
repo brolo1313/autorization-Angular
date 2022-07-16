@@ -18,6 +18,9 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './profile/profile.component';
+import { authReducers } from './auth/reducers/auth.reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, LoginPageComponent, ProfileComponent],
@@ -34,7 +37,8 @@ import { ProfileComponent } from './profile/profile.component';
     HttpClientModule,
     NgxMaskModule.forRoot(),
     EffectsModule.forRoot([AuthEffect]),
-    StoreModule.forRoot({})
+    StoreModule.forRoot({ auth: authReducers }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],

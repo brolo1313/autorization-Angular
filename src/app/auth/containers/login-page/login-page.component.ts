@@ -16,7 +16,6 @@ export class LoginPageComponent implements OnInit {
 
 
   public onLogin(data:any){
-    console.log(data);
     this.store.dispatch(AuthActions.login(data))
   }
 }
