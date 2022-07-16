@@ -108,7 +108,6 @@
       }
     }
   },
-  "defaultProject": "Angular-autorization",
   "cli": {
     "analytics": false
   }

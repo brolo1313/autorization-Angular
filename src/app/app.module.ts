@@ -15,6 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginPageComponent } from './auth/containers/login-page/login-page.component';
 import { AuthEffect } from './auth/effects/auth.effects';
 import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, LoginPageComponent],
@@ -28,8 +30,10 @@ import { EffectsModule } from '@ngrx/effects';
     MatInputModule,
     MatIconModule,
     ReactiveFormsModule,
+    HttpClientModule,
     NgxMaskModule.forRoot(),
-    EffectsModule.forRoot([AuthEffect])
+    EffectsModule.forRoot([AuthEffect]),
+    StoreModule.forRoot({})
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
