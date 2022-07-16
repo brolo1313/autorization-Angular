@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -7,16 +7,17 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  @Output() loginEmmiter = new EventEmitter();
 
   public hide = true;
 
   public form = this.fb.group({
-    tel : [null, [Validators.required]],
-    pass: [null, [Validators.required, Validators.minLength(8)]]
+    login : [null, [Validators.required]],
+    password: [null, [Validators.required, Validators.minLength(8)]]
   })
 
   get pass() {
-    return this.form.get('pass') as FormControl;
+    return this.form.get('password') as FormControl;
 } 
 
   constructor(private fb: FormBuilder) { }
@@ -25,6 +26,9 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(form:any): void {
-    console.log(form.value);
+    if(form.valid) {
+    const data = form.value;
+    this.loginEmmiter.emit(data)
+    }
   }
 }

@@ -12,9 +12,12 @@ import { MatInputModule } from '@angular/material/input';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginPageComponent } from './auth/containers/login-page/login-page.component';
+import { AuthEffect } from './auth/effects/auth.effects';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
+  declarations: [AppComponent, LoginComponent, LoginPageComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -26,6 +29,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     ReactiveFormsModule,
     NgxMaskModule.forRoot(),
+    EffectsModule.forRoot([AuthEffect])
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
