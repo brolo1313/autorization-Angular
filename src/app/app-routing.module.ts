@@ -9,7 +9,7 @@ import { ProfileComponent } from './profile/profile.component';
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginPageComponent },
-  { path: 'profile', component: ProfileComponent, title: 'profile' },
+  { path: 'profile', component: ProfileComponent, title: 'profile', canActivate: [AuthGuard], },
 ];
 
 // canActivate: [AuthGuard], canDeactivate: [ExitAuthGuard]

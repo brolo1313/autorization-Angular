@@ -37,6 +37,15 @@ export class AuthEffect {
     )
   );
 
+  loginSuccess$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(AuthActions.loginSuccess),
+        tap((action) => localStorage.setItem('user', JSON.stringify(action.user)))
+      ),
+    { dispatch: false }
+  );
+
   loginRedirect$ = createEffect(
     () =>
       this.actions$.pipe(
