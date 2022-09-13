@@ -21,6 +21,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { authReducers } from './auth/reducers/auth.reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { AuthGuard } from './auth/auth.guard';
+import { ExitAuthGuard } from './auth/exit.auth.guard';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, LoginPageComponent, ProfileComponent],
@@ -41,7 +43,7 @@ import { environment } from '../environments/environment';
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [],
+  providers: [AuthGuard, ExitAuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

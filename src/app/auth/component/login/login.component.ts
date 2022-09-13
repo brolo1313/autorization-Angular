@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   get pass() {
     return this.form.get('password') as UntypedFormControl;
-} 
+}
 
   constructor(private fb: UntypedFormBuilder) { }
 
