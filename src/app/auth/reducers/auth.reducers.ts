@@ -21,7 +21,15 @@ const reducer = createReducer(
       employee: user.employee,
       isLoading: false,
     };
-  })
+  }),
+
+  on(
+    AuthActions.logout,
+    () => ({
+      ...initialState,
+      isLoading: false
+    })
+  )
 );
 
 export function authReducers(state: any | undefined, action: Action) {

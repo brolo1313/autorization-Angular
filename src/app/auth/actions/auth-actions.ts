@@ -10,11 +10,15 @@ const loginFailure = createAction('[Auth] Login Failure', props<{ error:any }>()
 
 const loginRedirect = createAction('[Auth] Login Redirect');
 
+const logout = createAction('[Auth] Logout');
+
 
 export const AuthActions = {
     login,
     loginSuccess,
     loginFailure,
 
-    loginRedirect
+    loginRedirect,
+
+    logout,
 }
