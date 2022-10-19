@@ -19,6 +19,7 @@ import { LoginComponent } from './component/login/login.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { ProfilePageComponent } from '../profile/containers/profile-page.component';
+import { MatSelectModule } from '@angular/material/select';
 
 
 const routes: Routes = [
@@ -38,6 +39,7 @@ const routes: Routes = [
     MatCardModule,
     MatIconModule,
     MatTableModule,
+    MatSelectModule,
     MatPaginatorModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature('auth', authReducers, {}),

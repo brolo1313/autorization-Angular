@@ -1,5 +1,5 @@
 import { StoreModule } from '@ngrx/store';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -15,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { ProfilePageComponent } from '../profile/containers/profile-page.component';
 import { ProfileReducer } from './reducers/profile.reducers';
 import { ProfileEffect } from './effects/profile.effects';
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -28,12 +29,14 @@ import { ProfileEffect } from './effects/profile.effects';
     MatCardModule,
     MatIconModule,
     MatTableModule,
+    MatSelectModule,
     MatPaginatorModule,
     StoreModule.forFeature('profile', ProfileReducer, {}),
     EffectsModule.forFeature([ProfileEffect]),
   ],
   declarations: [],
   providers: [
-  ]
+  ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class ProfileModule { }

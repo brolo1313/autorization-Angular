@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AuthActions } from '../../auth/actions/auth-actions';
@@ -10,6 +11,10 @@ import { AuthActions } from '../../auth/actions/auth-actions';
 })
 export class ProfileComponent implements OnInit {
   
+  @Input() units:any;
+
+  unitsLFC = new FormControl('');
+
 
   constructor(
     private router: Router,

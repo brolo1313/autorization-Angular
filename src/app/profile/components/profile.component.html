@@ -1,5 +1,28 @@
-
 PROFILE
-<button class="d-block m-auto" mat-raised-button color="warn" routerLink="/login">Go to login page</button>
-<button class="d-block m-auto mt-3" mat-raised-button color="warn" (click)="LogOut()">LogOut</button>
-<button class="d-block m-auto mt-3" mat-raised-button color="warn" (click)="test()">test</button>
+<button
+  class="d-block m-auto"
+  mat-raised-button
+  color="warn"
+  routerLink="/login"
+>
+  Go to login page
+</button>
+<button
+  class="d-block m-auto mt-3"
+  mat-raised-button
+  color="warn"
+  (click)="LogOut()"
+>
+  LogOut
+</button>
+<div class="mt-4 d-flex justify-content-center">
+    <mat-form-field appearance="fill" class="bg-primary">
+        <mat-label>Units</mat-label>
+        <mat-select [formControl]="unitsLFC" >
+          <mat-option *ngFor="let item of units" [value]="item">{{
+              item.name
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+</div>
+
