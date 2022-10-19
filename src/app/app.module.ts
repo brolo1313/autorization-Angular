@@ -17,13 +17,16 @@ import { LoginPageComponent } from './auth/containers/login-page/login-page.comp
 import { AuthEffect } from './auth/effects/auth.effects';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { HttpClientModule } from '@angular/common/http';
-import { ProfileComponent } from './profile/profile.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ProfileComponent } from './profile/components/profile.component';
 import { authReducers } from './auth/reducers/auth.reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { AuthGuard } from './auth/services/auth.guard';
 import { ExitAuthGuard } from './auth/services/exit.auth.guard';
+import { ProfileModule } from './profile/profile.modules';
+import { HttpConfigInterceptor } from './auth/interceptor/http.interceptor';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,13 +36,19 @@ import { ExitAuthGuard } from './auth/services/exit.auth.guard';
     BrowserAnimationsModule,
     HttpClientModule,
     AuthModule,
+    ProfileModule,
+    SharedModule,
     NgxMaskModule.forRoot(),
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [AuthGuard, ExitAuthGuard],
+  providers: [AuthGuard, ExitAuthGuard, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttpConfigInterceptor,
+    multi: true
+  },],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

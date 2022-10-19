@@ -1,5 +1,3 @@
-import { AuthEffect } from './effects/auth.effects';
-import { AuthGuard } from './services/auth.guard';
 import { StoreModule } from '@ngrx/store';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -11,22 +9,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { EffectsModule } from '@ngrx/effects';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { LoginPageComponent } from './containers/login-page/login-page.component';
 import { ProfileComponent } from '../profile/components/profile.component';
-import { authReducers } from './reducers/auth.reducers';
-import { AuthService } from './services/auth-service.service';
-import { LoginComponent } from './component/login/login.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { ProfilePageComponent } from '../profile/containers/profile-page.component';
+import { ProfileReducer } from './reducers/profile.reducers';
+import { ProfileEffect } from './effects/profile.effects';
 
 
-const routes: Routes = [
-    { path: '', redirectTo: 'login', pathMatch: 'full' },
-    { path: 'login', component: LoginPageComponent },
-    { path: 'profile', component: ProfilePageComponent, title: 'profile', canActivate: [AuthGuard], },
-  ];
-  
 
 @NgModule({
   imports: [
@@ -39,14 +29,11 @@ const routes: Routes = [
     MatIconModule,
     MatTableModule,
     MatPaginatorModule,
-    RouterModule.forChild(routes),
-    StoreModule.forFeature('auth', authReducers, {}),
-    EffectsModule.forFeature([AuthEffect]),
+    StoreModule.forFeature('profile', ProfileReducer, {}),
+    EffectsModule.forFeature([ProfileEffect]),
   ],
-  declarations: [LoginComponent, LoginPageComponent, ProfileComponent, ProfilePageComponent],
+  declarations: [],
   providers: [
-    AuthService,
-    AuthGuard,
   ]
 })
-export class AuthModule { }
+export class ProfileModule { }
