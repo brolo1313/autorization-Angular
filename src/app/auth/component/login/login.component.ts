@@ -7,7 +7,7 @@ import { UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/for
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  @Output() loginEmmiter = new EventEmitter();
+  @Output() loginEmitter = new EventEmitter();
 
   public hide = true;
 
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   onSubmit(form:any): void {
     if(form.valid) {
     const data = form.value;
-    this.loginEmmiter.emit(data)
+    this.loginEmitter.emit(data)
     }
   }
 }

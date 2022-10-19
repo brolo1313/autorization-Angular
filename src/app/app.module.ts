@@ -1,3 +1,4 @@
+import { AuthModule } from './auth/auth.module';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -21,29 +22,24 @@ import { ProfileComponent } from './profile/profile.component';
 import { authReducers } from './auth/reducers/auth.reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { AuthGuard } from './auth/auth.guard';
-import { ExitAuthGuard } from './auth/exit.auth.guard';
+import { AuthGuard } from './auth/services/auth.guard';
+import { ExitAuthGuard } from './auth/services/exit.auth.guard';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, LoginPageComponent, ProfileComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatCardModule,
-    MatButtonModule,
-    MatInputModule,
-    MatIconModule,
-    ReactiveFormsModule,
     HttpClientModule,
+    AuthModule,
     NgxMaskModule.forRoot(),
-    EffectsModule.forRoot([AuthEffect]),
-    StoreModule.forRoot({ auth: authReducers }),
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [AuthGuard, ExitAuthGuard],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

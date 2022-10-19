@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AuthActions } from '../auth/actions/auth-actions';
-import { ComponentCanDeactivate } from '../auth/exit.auth.guard';
+import { ComponentCanDeactivate } from '../auth/services/exit.auth.guard';
 
 @Component({
   selector: 'app-profile',
@@ -15,14 +15,14 @@ export class ProfileComponent implements OnInit, ComponentCanDeactivate {
   public title: string = '';
   saved: boolean = false;
 
+  public token: any;
+
   constructor(
-    private route: Router,
     private router: Router,
     private store: Store<any>
   ) {}
 
   ngOnInit(): void {
-    console.log(this.route);
   }
 
   canDeactivate(): boolean | Observable<boolean> {
