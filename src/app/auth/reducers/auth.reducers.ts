@@ -9,7 +9,7 @@ const initialState = {
 
 const reducer = createReducer(
   initialState,
-  on(AuthActions.login, (state, { data }) => ({
+  on(AuthActions.login, (state) => ({
     ...state,
     isLoading: true,
   })),

@@ -1,5 +1,3 @@
-<button mat-raised-button color="warn" routerLink="/profile">Profile page</button>
-
 <div
   class="d-flex vh-100 justify-content-center align-items-center flex-column"
 >
@@ -20,7 +18,7 @@
           autocomplete="on"
         />
       </mat-form-field>
-      <mat-hint class="text-secondary">380637771212</mat-hint>
+      <mat-hint class="text-secondary">380880000022</mat-hint>
 
       <mat-form-field
         class="d-flex justify-content-center mt-4"
@@ -33,17 +31,13 @@
           formControlName="password"
           [type]="hide ? 'password' : 'text'"
         />
-        <button
-          type="button"
-          mat-icon-button
-          matSuffix
-          (click)="hide = !hide"
-        >
+        <button type="button" mat-icon-button matSuffix (click)="hide = !hide">
           <mat-icon>edit</mat-icon>
         </button>
         <mat-error *ngIf="pass.errors?.['minlength']">
-          Length must be at least {{pass.errors?.['minlength'].requiredLength}} character.
-          Now you write {{pass.errors?.['minlength'].actualLength}} characters.
+          Length must be at least
+          {{pass.errors?.['minlength'].requiredLength}} character. Now you write
+          {{pass.errors?.['minlength'].actualLength}} characters.
         </mat-error>
       </mat-form-field>
 
